@@ -1,7 +1,6 @@
 package net.firstProject.saf.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,11 +27,26 @@ import lombok.Setter;
 
 
 public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "roll_number")
     private int roll_number;
+
+    @Column(name= "firstName")
     private String firstName;
+
+    @Column(name = "lastName")
     private String lastName;
-    private int  pu_percentage;
+
+    @Column(name = "email_id",nullable = false,unique = true)
+    private String email;
+
+    @Column(name = "pu_percentage",nullable = false)
+    private float  pu_percentage;
+
+    @Column(name ="address")
     private String address;
 
 }
@@ -53,6 +67,7 @@ public class Student {
 //}
 
 //ALlArgsConstructor
+
 //public class Person {
 //
 //    private String firstname;
