@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SafBackendApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(SafBackendApplication.class, args);
 	}
 

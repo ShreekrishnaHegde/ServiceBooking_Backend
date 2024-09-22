@@ -35,8 +35,6 @@ public class Student {
     //Long is not a primitive datatype here.
     private Long id;
 
-    @Column(name = "roll_number")
-    private int roll_number;
 
     @Column(name= "firstName")
     private String firstName;
