@@ -27,9 +27,13 @@ import lombok.Setter;
 
 
 public class Student {
+//    The @Id annotation in Java is used in the context of JPA to specify the primary key of an entity.
     @Id
+//    This annotation is generally used in conjunction with @Id annotation
+//    to automatically generate unique values for primary key columns within our database tables.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    //Long is not a primitive datatype here.
+    private Long id;
 
     @Column(name = "roll_number")
     private int roll_number;
@@ -44,7 +48,7 @@ public class Student {
     private String email;
 
     @Column(name = "pu_percentage",nullable = false)
-    private float  pu_percentage;
+    private Float  pu_percentage;
 
     @Column(name ="address")
     private String address;
