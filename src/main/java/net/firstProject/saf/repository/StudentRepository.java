@@ -2,6 +2,9 @@ package net.firstProject.saf.repository;
 
 import net.firstProject.saf.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 //Extends keyword is used to extend the functionality of the parent class to the subclass.But here it is interface.
 //StudentRepository interface inherits the property from its parent interface JPaRepository
@@ -13,6 +16,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface StudentRepository extends JpaRepository<Student,Long> {
 
 
+        @Query(value = "SELECT first_name FROM saf ORDER BY first_name ASC", nativeQuery = true)
+        List<String> sortByfirstName();
 }
 
 

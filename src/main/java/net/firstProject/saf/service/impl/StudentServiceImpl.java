@@ -64,6 +64,14 @@ public class StudentServiceImpl implements StudentService {
     public void deleteAllStudents() {
         studentRepository.deleteAll();
     }
+
+    @Override
+    public List<String> sortByfirstName() {
+        List<String> sortedNames=studentRepository.sortByfirstName();
+        return sortedNames;
+    }
+
+
 }
 /*
 createStudent method takes studentDto as argument and returns the object of type StudentDto.

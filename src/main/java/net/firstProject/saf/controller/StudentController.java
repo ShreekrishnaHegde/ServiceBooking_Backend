@@ -61,6 +61,14 @@ public class StudentController {
         return ResponseEntity.ok("Deleted all data.");
     }
 
+
+    @GetMapping("/sort")
+    //Get ALl Students REST API
+    public ResponseEntity<List<String>> sortByfirstName(){
+        List<String> list=studentService.sortByfirstName();
+        return ResponseEntity.ok(list);
+    }
+
 }
 /*
 When the request hits the endpoint , if it is a post request the createStudent method will be executed.
