@@ -3,6 +3,7 @@ package net.firstProject.saf.controller;
 
 import lombok.AllArgsConstructor;
 import net.firstProject.saf.dto.StudentDto;
+import net.firstProject.saf.entity.Student;
 import net.firstProject.saf.service.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,6 +39,13 @@ public class StudentController {
     public ResponseEntity<List<StudentDto>> getAllStudents(){
         List<StudentDto> students= studentService.getAllStudents();
         return ResponseEntity.ok(students);
+    }
+
+    //Update Student REST API
+    @PutMapping("{id}")
+    public ResponseEntity<StudentDto> updateStudent(@PathVariable("id") Long studentId,@RequestBody StudentDto updatedStudent){
+       StudentDto studentDto= studentService.updateStudent(studentId,updatedStudent);
+       return ResponseEntity.ok(studentDto);
     }
 }
 /*

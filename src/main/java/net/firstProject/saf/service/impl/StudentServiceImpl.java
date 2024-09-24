@@ -31,7 +31,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public StudentDto getStudentById(Long studentId) {
         Student student=studentRepository.findById(studentId)
-                .orElseThrow(()->new ResourceNotFoundException("Employee does not exist"));
+                .orElseThrow(()->new ResourceNotFoundException("Student does not exist"));
         return StudentMapper.mapToStudentDto(student);
     }
 
@@ -40,6 +40,18 @@ public class StudentServiceImpl implements StudentService {
         List<Student> students=studentRepository.findAll();
         return students.stream().map((student -> StudentMapper.mapToStudentDto(student)))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public StudentDto updateStudent(Long studentId, StudentDto updatedStudent) {
+        Student student=studentRepository.findById(studentId).orElseThrow(()-> new ResourceNotFoundException("Student does not exist"));
+        student.setFirstName(updatedStudent.getFirstName());
+        student.setLastName(updatedStudent.getLastName());
+        student.setEmail(updatedStudent.getEmail());
+        student.setPu_percentage(updatedStudent.getPu_percentage());
+        student.setAddress(updatedStudent.getAddress());
+        Student newStudent=studentRepository.save(student);
+        return StudentMapper.mapToStudentDto(newStudent);
     }
 }
 /*
