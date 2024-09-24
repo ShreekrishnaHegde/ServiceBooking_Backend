@@ -1,5 +1,6 @@
 package net.firstProject.saf.service.impl;
 
+import exceptions.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 import net.firstProject.saf.dto.StudentDto;
 import net.firstProject.saf.entity.Student;
@@ -7,6 +8,7 @@ import net.firstProject.saf.mapper.StudentMapper;
 import net.firstProject.saf.repository.StudentRepository;
 import net.firstProject.saf.service.StudentService;
 import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,6 +24,12 @@ public class StudentServiceImpl implements StudentService {
         return StudentMapper.mapToStudentDto(savedStudent);
     }
 
+    @Override
+    public StudentDto getStudentById(Long studentId) {
+        Student student=studentRepository.findById(studentId)
+                .orElseThrow(()->new ResourceNotFoundException("Employee does not exist"));
+        return StudentMapper.mapToStudentDto(student);
+    }
 }
 /*
 createStudent method takes studentDto as argument and returns the object of type StudentDto.

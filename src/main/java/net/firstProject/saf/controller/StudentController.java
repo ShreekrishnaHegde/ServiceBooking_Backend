@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/students")
 @AllArgsConstructor
 
-public class EmployeeController {
+public class StudentController {
 
     private StudentService studentService;
 
@@ -24,7 +24,12 @@ public class EmployeeController {
         return new ResponseEntity<>(savedStudent, HttpStatus.CREATED);
     }
 
-
+    //Get Student REST API
+    @GetMapping("{id}")
+    public ResponseEntity<StudentDto> getStudentById(@PathVariable("id") Long studentId){
+        StudentDto studentDto=studentService.getStudentById(studentId);
+        return  ResponseEntity.ok(studentDto);
+    }
 }
 /*
 When the request hits the endpoint , if it is a post request the createStudent method will be executed.
