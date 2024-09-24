@@ -54,6 +54,13 @@ public class StudentController {
         studentService.deleteStudent(studentId);
         return ResponseEntity.ok("Student deleted successfully");
     }
+
+    @DeleteMapping
+    public ResponseEntity<String> deleteAllStudents(){
+        studentService.deleteAllStudents();
+        return ResponseEntity.ok("Deleted all data.");
+    }
+
 }
 /*
 When the request hits the endpoint , if it is a post request the createStudent method will be executed.

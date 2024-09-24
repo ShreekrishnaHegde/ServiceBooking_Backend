@@ -59,6 +59,11 @@ public class StudentServiceImpl implements StudentService {
         Student student=studentRepository.findById(studentId).orElseThrow(()-> new ResourceNotFoundException("Student does not exist"));
         studentRepository.deleteById(studentId);
     }
+
+    @Override
+    public void deleteAllStudents() {
+        studentRepository.deleteAll();
+    }
 }
 /*
 createStudent method takes studentDto as argument and returns the object of type StudentDto.
