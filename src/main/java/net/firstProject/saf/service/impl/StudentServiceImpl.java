@@ -53,6 +53,12 @@ public class StudentServiceImpl implements StudentService {
         Student newStudent=studentRepository.save(student);
         return StudentMapper.mapToStudentDto(newStudent);
     }
+
+    @Override
+    public void deleteStudent(Long studentId) {
+        Student student=studentRepository.findById(studentId).orElseThrow(()-> new ResourceNotFoundException("Student does not exist"));
+        studentRepository.deleteById(studentId);
+    }
 }
 /*
 createStudent method takes studentDto as argument and returns the object of type StudentDto.

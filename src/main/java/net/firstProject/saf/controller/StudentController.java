@@ -47,6 +47,13 @@ public class StudentController {
        StudentDto studentDto= studentService.updateStudent(studentId,updatedStudent);
        return ResponseEntity.ok(studentDto);
     }
+
+    //Delete Student REST API
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteStudent(@PathVariable("id")Long studentId){
+        studentService.deleteStudent(studentId);
+        return ResponseEntity.ok("Student deleted successfully");
+    }
 }
 /*
 When the request hits the endpoint , if it is a post request the createStudent method will be executed.
