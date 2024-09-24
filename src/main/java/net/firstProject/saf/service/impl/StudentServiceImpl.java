@@ -6,6 +6,7 @@ import net.firstProject.saf.entity.Student;
 import net.firstProject.saf.mapper.StudentMapper;
 import net.firstProject.saf.repository.StudentRepository;
 import net.firstProject.saf.service.StudentService;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,6 +21,7 @@ public class StudentServiceImpl implements StudentService {
         Student savedStudent=studentRepository.save(student);
         return StudentMapper.mapToStudentDto(savedStudent);
     }
+
 }
 /*
 createStudent method takes studentDto as argument and returns the object of type StudentDto.

@@ -6,10 +6,7 @@ import net.firstProject.saf.dto.StudentDto;
 import net.firstProject.saf.service.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/students")
@@ -22,10 +19,12 @@ public class EmployeeController {
     //ADD Student REST API
 
     @PostMapping
-    public ResponseEntity<StudentDto> createStudent(@RequestBody StudentDto studentDto){
-        StudentDto savedStudent=studentService.createStudent(studentDto);
+    public ResponseEntity<StudentDto> createStudent(@RequestBody StudentDto studentDto) {
+        StudentDto savedStudent = studentService.createStudent(studentDto);
         return new ResponseEntity<>(savedStudent, HttpStatus.CREATED);
     }
+
+
 }
 /*
 When the request hits the endpoint , if it is a post request the createStudent method will be executed.
