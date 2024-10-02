@@ -45,12 +45,6 @@ public class Student {
     @Column(name = "email_id",nullable = false,unique = true)
     private String email;
 
-    @Column(name = "pu_percentage",nullable = false)
-    private Float  pu_percentage;
-
-    @Column(name ="address")
-    private String address;
-
 }
 
 //Getter and Setter

@@ -48,8 +48,7 @@ public class StudentServiceImpl implements StudentService {
         student.setFirstName(updatedStudent.getFirstName());
         student.setLastName(updatedStudent.getLastName());
         student.setEmail(updatedStudent.getEmail());
-        student.setPu_percentage(updatedStudent.getPu_percentage());
-        student.setAddress(updatedStudent.getAddress());
+
         Student newStudent=studentRepository.save(student);
         return StudentMapper.mapToStudentDto(newStudent);
     }

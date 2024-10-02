@@ -16,8 +16,6 @@ public class StudentDto {
     private String firstName;
     private String lastName;
     private String email;
-    private Float pu_percentage;
-    private String address;
 
 
 

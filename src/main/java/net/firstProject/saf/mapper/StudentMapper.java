@@ -10,9 +10,7 @@ public class StudentMapper {
                     student.getId(),
                     student.getFirstName(),
                     student.getLastName(),
-                    student.getEmail(),
-                    student.getPu_percentage(),
-                    student.getAddress()
+                    student.getEmail()
             );
         }
 
@@ -21,9 +19,7 @@ public class StudentMapper {
                     studentDto.getId(),
                     studentDto.getFirstName(),
                     studentDto.getLastName(),
-                    studentDto.getEmail(),
-                    studentDto.getPu_percentage(),
-                    studentDto.getAddress()
+                    studentDto.getEmail()
             );
        }
 }
