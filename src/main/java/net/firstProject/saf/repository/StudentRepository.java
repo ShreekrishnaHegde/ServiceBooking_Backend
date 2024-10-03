@@ -1,5 +1,6 @@
 package net.firstProject.saf.repository;
 
+import net.firstProject.saf.dto.StudentDto;
 import net.firstProject.saf.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,8 +17,8 @@ import java.util.List;
 public interface StudentRepository extends JpaRepository<Student,Long> {
 
 
-        @Query(value = "SELECT first_name FROM saf ORDER BY first_name ASC", nativeQuery = true)
-        List<String> sortByfirstName();
+        @Query(value = "SELECT * FROM saf ORDER BY first_name ASC", nativeQuery = true)
+        List<Student> sortByfirstName();
 }
 
 

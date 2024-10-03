@@ -12,5 +12,5 @@ public interface StudentService {
     StudentDto updateStudent(Long studentId,StudentDto updatedStudent);
     void deleteStudent(Long studentId);
     void deleteAllStudents();
-    List<String> sortByfirstName();
+    List<StudentDto> sortByFirstName();
 }

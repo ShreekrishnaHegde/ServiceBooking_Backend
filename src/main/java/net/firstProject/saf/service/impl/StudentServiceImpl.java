@@ -65,9 +65,10 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<String> sortByfirstName() {
-        List<String> sortedNames=studentRepository.sortByfirstName();
-        return sortedNames;
+    public List<StudentDto> sortByFirstName() {
+        List<Student> sorted=studentRepository.sortByfirstName();
+        return sorted.stream().map((student -> StudentMapper.mapToStudentDto(student)))
+                .collect(Collectors.toList());
     }
 
 
