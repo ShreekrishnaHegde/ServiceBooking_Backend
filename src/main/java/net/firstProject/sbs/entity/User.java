@@ -1,10 +1,9 @@
-package net.firstProject.saf.entity;
+package net.firstProject.sbs.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import net.firstProject.sbs.Enums.UserRole;
+import net.firstProject.sbs.dto.UserDto;
 
 //We use Getters when accessing private variables of a class from outside that class.
 //We can achieve this by creating a "public" method inside the class which returns the value of the variable.
@@ -23,55 +22,39 @@ import lombok.Setter;
 @Entity
 //By default, the entity name is the same as the class name.
 //However, we can  customize the table name using the @Table annotation.
-@Table(name="saf")
+@Table(name="sbs")
 
-
-public class Student {
+@Data
+public class User {
 //    The @Id annotation in Java is used in the context of JPA to specify the primary key of an entity.
     @Id
 //    This annotation is generally used in conjunction with @Id annotation
 //    to automatically generate unique values for primary key columns within our database tables.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //Long is not a primitive datatype here.
+    //Long is not a primitive datatype here
     private Long id;
 
 
-    @Column(name= "firstName")
-    private String firstName;
-
-    @Column(name = "lastName")
-    private String lastName;
-
-    @Column(name = "email_id",nullable = false,unique = true)
+    @Column
     private String email;
+    @Column
+    private String password;
+    @Column
+    private String name;
+    @Column
+    private String lastname;
+    @Column
+    private String phone;
+    @Column
+    private UserRole role;
 
+    public UserDto getDto() {
+        UserDto userDto=new UserDto();
+        userDto.setId(id);
+        userDto.setName(name);
+        userDto.setEmail(email);
+        userDto.setRole(role);
+
+        return userDto;
+    }
 }
-
-//Getter and Setter
-//public class Example {
-//    private String name;
-//
-//    //getter
-//    public String getName() {
-//        return name;
-//    }
-//
-//    //setter
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//}
-
-//ALlArgsConstructor
-
-//public class Person {
-//
-//    private String firstname;
-//    private String lastname;
-//
-//    public Person(String firstname, String lastname) {
-//        this.firstname = firstname;
-//        this.lastname = lastname;
-//    }
-//
-//}

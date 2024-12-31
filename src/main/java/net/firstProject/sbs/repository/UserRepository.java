@@ -1,7 +1,6 @@
-package net.firstProject.saf.repository;
+package net.firstProject.sbs.repository;
 
-import net.firstProject.saf.dto.StudentDto;
-import net.firstProject.saf.entity.Student;
+import net.firstProject.sbs.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -14,11 +13,9 @@ import java.util.List;
 //and java datatypes to SQL datatypes. Jpa Repository contains methods to perform CRUD operations on the
 //database.But it requires the type of entity and type of  primary key to perform operations. Hence, we are
 //passing entity type that is Student and type of primary key that is Long.
-public interface StudentRepository extends JpaRepository<Student,Long> {
+public interface UserRepository extends JpaRepository<User,Long> {
+        User findFirstByEmail(String email);
 
-
-        @Query(value = "SELECT * FROM saf ORDER BY first_name ASC", nativeQuery = true)
-        List<Student> sortByfirstName();
 }
 
 
