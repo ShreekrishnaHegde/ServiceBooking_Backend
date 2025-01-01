@@ -10,6 +10,7 @@ import net.firstProject.sbs.entity.User;
 import net.firstProject.sbs.repository.UserRepository;
 import net.firstProject.sbs.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -26,9 +27,8 @@ public class AuthServiceImpl implements AuthService {
         user.setEmail(signupRequestDto.getEmail());
         user.setLastname(signupRequestDto.getLastname());
         user.setPhone(signupRequestDto.getPhone());
-        user.setPassword(signupRequestDto.getPassword());
+        user.setPassword(new BCryptPasswordEncoder().encode(signupRequestDto.getPassword()));
         user.setRole(UserRole.CLIENT);
-
         return userRepository.save(user).getDto();
     }
     @Override
@@ -42,7 +42,7 @@ public class AuthServiceImpl implements AuthService {
         user.setName(signupRequestDto.getName());
         user.setEmail(signupRequestDto.getEmail());
         user.setPhone(signupRequestDto.getPhone());
-        user.setPassword(signupRequestDto.getPassword());
+        user.setPassword(new BCryptPasswordEncoder().encode(signupRequestDto.getPassword()));
         user.setRole(UserRole.COMPANY);
 
         return userRepository.save(user).getDto();
