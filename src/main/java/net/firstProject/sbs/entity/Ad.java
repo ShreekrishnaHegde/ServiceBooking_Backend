@@ -30,7 +30,7 @@ public class Ad {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
-    public AdDto getAddDto(){
+    public AdDto getAdDto(){
         AdDto adDto=new AdDto();
         adDto.setId(id);
         adDto.setServiceName(serviceName);
