@@ -73,6 +73,7 @@ public class AuthenticationController {
         return new ResponseEntity<>(createdUser,HttpStatus.OK);
     }
 
+    @PostMapping("/authenticate")
     public void createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest, HttpServletResponse response) throws IOException, JSONException {
 
         try {
