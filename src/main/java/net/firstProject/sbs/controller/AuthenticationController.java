@@ -1,7 +1,6 @@
 package net.firstProject.sbs.controller;
 
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import net.firstProject.sbs.dto.AuthenticationRequest;
@@ -26,10 +25,9 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 
 @CrossOrigin("*")
-@RestController
 //@RequestMapping("/api/students")
 @AllArgsConstructor
-
+@RestController
 public class AuthenticationController {
 
     private AuthService studentService;
@@ -49,7 +47,7 @@ public class AuthenticationController {
     private UserRepository userRepository;
 
 
-    public static final String TOKEN_PREFIX="Bearer";
+    public static final String TOKEN_PREFIX="Bearer ";
 
     public static final String HEADER_STRING="Authorization";
 
@@ -97,7 +95,7 @@ public class AuthenticationController {
         );
         response.addHeader("Access-Control-Expose-Headers","Authorization");
         response.addHeader("Access-Control-Allow_Headers","Authorization"+
-                "X-PINGOTHER,ORIGIN,X-REQUESTED_WITH,CONTENT-TYPE,ACCEPT,X-CUSTOMER_HEADER");
+                "X-PING OTHER,ORIGIN,X-REQUESTED_WITH,CONTENT-TYPE,ACCEPT,X-CUSTOMER_HEADER");
         response.addHeader(HEADER_STRING,TOKEN_PREFIX+jwt);
     }
 

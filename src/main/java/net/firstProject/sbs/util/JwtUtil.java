@@ -17,14 +17,16 @@ import java.util.function.Function;
 
 @Component
 public class JwtUtil {
-    public static final String SECRET="12345678987654321";
+    public static final String SECRET="5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
     private String createToken(Map<String,Object> claims,String userName){
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(userName)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis()+1000*60*30))
-                .signWith(SignatureAlgorithm.HS256,getSignKey()).compact();
+                .signWith(getSignKey(),SignatureAlgorithm.HS256).
+//                .signWith(SignatureAlgorithm.HS256,getSignKey()).
+                compact();
     }
     private Key getSignKey() {
         byte[] keyBytes= Decoders.BASE64.decode(SECRET);
@@ -36,10 +38,15 @@ public class JwtUtil {
     }
     private Claims exractAllClaims(String token){
         return Jwts
-                .parser()
+                .parserBuilder()
                 .setSigningKey(getSignKey())
+                .build()
                 .parseClaimsJws(token)
                 .getBody();
+//                .parser()
+//                .setSigningKey(getSignKey())
+//                .parseClaimsJws(token)
+//                .getBody();
     }
     public <T>  T extractClaim(String token, Function<Claims,T> claimsResolver){
         final Claims claims=exractAllClaims(token);
