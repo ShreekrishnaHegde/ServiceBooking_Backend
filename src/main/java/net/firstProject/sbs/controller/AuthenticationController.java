@@ -73,13 +73,13 @@ public class AuthenticationController {
 
     @PostMapping("/authenticate")
     public void createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest, HttpServletResponse response) throws IOException, JSONException {
-
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                     authenticationRequest.getUsername(),
                     authenticationRequest.getPassword()
             ));
-        }catch (BadCredentialsException e){
+        }
+        catch (BadCredentialsException e){
             throw new BadCredentialsException("Incorrect username or password",e);
         }
         final UserDetails userDetails=userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
