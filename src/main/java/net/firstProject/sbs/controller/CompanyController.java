@@ -19,10 +19,12 @@ public class  CompanyController {
     @PostMapping("/ad/{userId}")
     public ResponseEntity<?> postAdd(@PathVariable Long userId, @ModelAttribute AdDto adDto) throws IOException {
         boolean success=companyService.postAd(userId,adDto);
-        if(success)
+        if(success) {
             return ResponseEntity.status(HttpStatus.OK).build();
-        else
+        }
+        else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 
     @GetMapping("/ads/{userId}")

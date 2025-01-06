@@ -1,5 +1,6 @@
 package net.firstProject.sbs.entity;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.Data;
 import net.firstProject.sbs.dto.AdDto;

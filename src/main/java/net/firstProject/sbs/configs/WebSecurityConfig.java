@@ -32,7 +32,7 @@ public class WebSecurityConfig {
          http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers( "/authenticate","company/sign-up","client/sign-up","/ads", "/search/{service}").permitAll()
+                        .requestMatchers( "/api/company/ad/{userId}","/authenticate","company/sign-up","client/sign-up","/ads", "/search/{service}").permitAll()
                         .requestMatchers("/api/**").authenticated()
                 )
                 .sessionManagement(session -> session
