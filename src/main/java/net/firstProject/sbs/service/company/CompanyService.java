@@ -8,5 +8,6 @@ import java.util.List;
 public interface CompanyService {
 
     boolean postAd(Long userId, AdDto adDto)  throws IOException;
-//    List<AdDto> getAllAds(Long userId);
+    List<AdDto> getAllAds(Long userId);
+    public AdDto getAdById(Long adId);
 }

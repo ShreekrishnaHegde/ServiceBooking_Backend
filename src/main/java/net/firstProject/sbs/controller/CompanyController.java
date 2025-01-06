@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/api/company")
-public class CompanyController {
+public class  CompanyController {
 
     @Autowired
     CompanyService companyService;
@@ -23,5 +23,22 @@ public class CompanyController {
             return ResponseEntity.status(HttpStatus.OK).build();
         else
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+
+    @GetMapping("/ads/{userId}")
+    public ResponseEntity<?> getAllAdsByUserId(@PathVariable Long userId){
+        return ResponseEntity.ok(companyService.getAllAds(userId));
+
+    }
+
+    @GetMapping("/ad/{adId}")
+    public ResponseEntity<?> geAdById(@PathVariable Long adId){
+        AdDto adDto=companyService.getAdById(adId);
+        if(adDto!=null){
+            return ResponseEntity.ok(adDto);
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 }

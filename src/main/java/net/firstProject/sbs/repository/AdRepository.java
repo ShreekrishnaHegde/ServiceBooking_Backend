@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface AdRepository extends JpaRepository<Ad,Long> {
 
-    List<AdDto> findALlByUserId(Long id);
+    List<Ad> findAllByUserId(Long id);
 }
