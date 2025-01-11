@@ -24,11 +24,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
-@CrossOrigin("*")
-//@RequestMapping("/api/students")
+
 @AllArgsConstructor
 @RestController
-public class AuthenticationController {
+public class  AuthenticationController {
 
     private AuthService studentService;
     @Autowired

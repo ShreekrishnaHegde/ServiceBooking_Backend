@@ -11,5 +11,5 @@ import java.util.List;
 public interface AdRepository extends JpaRepository<Ad,Long> {
 
     List<Ad> findAllByUserId(Long id);
-    List<Ad> findAllServiceNameContaining(String name);
+//    List<Ad> findAllServiceNameContaining(String serviceName);
 }

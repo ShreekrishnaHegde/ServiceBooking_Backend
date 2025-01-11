@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/client")
 public class ClientController {
@@ -23,10 +24,10 @@ public class ClientController {
 
     }
 
-    @GetMapping("/search/name")
-    public ResponseEntity<?> searchAdByService(@PathVariable String name){
-        return ResponseEntity.ok(clientService.searchAdByName(name));
-    }
+//    @GetMapping("/search/name")
+//    public ResponseEntity<?> searchAdByService(@PathVariable String name){
+//        return ResponseEntity.ok(clientService.searchAdByName(name));
+//    }
 
     @PostMapping("/book-service")
     public ResponseEntity<?> bookService(@RequestBody ReservationDto reservationDto){

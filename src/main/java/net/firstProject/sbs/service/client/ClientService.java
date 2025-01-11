@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ClientService {
     public List<AdDto> getAllAds();
-    public List<AdDto> searchAdByName(String name);
+//    public List<AdDto> searchAdByName(String name);
     boolean bookService(ReservationDto reservationDto);
     AdDetailsForClientDto getAdDetailsByAdId(Long adId);
     public List<ReservationDto> getAllBookingsByUserId(Long userId);

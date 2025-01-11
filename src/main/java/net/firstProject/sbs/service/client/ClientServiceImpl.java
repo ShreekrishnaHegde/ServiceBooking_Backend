@@ -38,9 +38,9 @@ public class ClientServiceImpl implements ClientService{
         return adRepository.findAll().stream().map(Ad::getAdDto).collect(Collectors.toList());
     }
 
-    public List<AdDto> searchAdByName(String name){
-        return adRepository.findAllServiceNameContaining(name).stream().map(Ad::getAdDto).collect(Collectors.toList());
-    }
+//    public List<AdDto> searchAdByName(String name){
+//        return adRepository.findAllServiceNameContaining(name).stream().map(Ad::getAdDto).collect(Collectors.toList());
+//    }
 
     public boolean bookService(ReservationDto reservationDto){
         Optional<Ad> optionalAd=adRepository.findById(reservationDto.getAdId());
@@ -95,6 +95,7 @@ public class ClientServiceImpl implements ClientService{
             return true;
 
         }
+        return false;
     }
 
 }

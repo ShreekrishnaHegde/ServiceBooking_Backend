@@ -22,8 +22,7 @@ import net.firstProject.sbs.dto.UserDto;
 @Entity
 //By default, the entity name is the same as the class name.
 //However, we can  customize the table name using the @Table annotation.
-@Table(name="sbs")
-
+@Table(name="users ")
 @Data
 public class User {
 //    The @Id annotation in Java is used in the context of JPA to specify the primary key of an entity.
